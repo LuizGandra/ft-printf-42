@@ -6,7 +6,7 @@ ARFLAGS := -rcs
 RM := rm -rf
 HEADERS := ft_printf.h
 OBJS_DIR := objects
-SOURCES := ft_printf.c utils.c
+SOURCES := ft_printf.c utils.c ft_putaddress_fd.c ft_puthex_fd.c
 OBJECTS := $(SOURCES:%.c=$(OBJS_DIR)/%.o)
 
 all: $(NAME)
