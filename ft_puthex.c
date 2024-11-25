@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_puthex.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lcosta-g <lcosta-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/09 13:15:22 by lcosta-g          #+#    #+#             */
-/*   Updated: 2024/10/15 17:41:51 by lcosta-g         ###   ########.fr       */
+/*   Created: 2024/11/22 12:06:12 by lcosta-g          #+#    #+#             */
+/*   Updated: 2024/11/25 16:48:47 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_bzero(void *s, size_t n)
+int	ft_puthex(unsigned long long n, const char code)
 {
-	ft_memset(s, 0, n);
-}
+	int	bytes;
 
-/*
-#include <stdio.h>
-int	main(void)
-{
-	int	mem[12];
-	int	i;
-
-	ft_bzero(mem, 3 * sizeof(int));
-	i = 0;
-	while (i < 3)
-		printf("%i\n", mem[i++]);
-	return (0);
+	bytes = 0;
+	if (code == 'x')
+		write_hex(n, &bytes, HEX_LOWERCASE_VALUES);
+	else
+		write_hex(n, &bytes, HEX_UPPERCASE_VALUES);
+	return (bytes);
 }
-*/

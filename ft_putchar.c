@@ -1,32 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 12:06:12 by lcosta-g          #+#    #+#             */
-/*   Updated: 2024/11/22 13:30:54 by lcosta-g         ###   ########.fr       */
+/*   Created: 2024/10/09 13:16:37 by lcosta-g          #+#    #+#             */
+/*   Updated: 2024/11/25 16:00:10 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_puthex_lower_fd(unsigned int n, int fd)
+int	ft_putchar(char c)
 {
-	if (n == 0)
-		ft_putchar_fd('0', fd);
-	write_hex(n, fd, HEX_LOWERCASE_VALUES);
-	// TODO implement return logic
-	return (0);
+	return (write(STDOUT, &c, 1));
 }
-
-int	ft_puthex_upper_fd(unsigned int n, int fd)
-{
-	if (n == 0)
-		ft_putchar_fd('0', fd);
-	write_hex(n, fd, HEX_UPPERCASE_VALUES);
-	// TODO implement return logic
-	return (0);
-}
-

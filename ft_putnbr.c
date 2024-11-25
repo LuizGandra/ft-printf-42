@@ -1,51 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lcosta-g <lcosta-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:17:49 by lcosta-g          #+#    #+#             */
-/*   Updated: 2024/10/26 15:34:52 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2024/11/25 16:00:02 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-static void	write_number(long long n, int fd)
-{
-	char	c;
-
-	if (n > 9)
-		write_number(n / 10, fd);
-	c = (n % 10) + '0';
-	ft_putchar_fd(c, fd);
-}
-
-void	ft_putnbr_fd(int n, int fd)
+int	ft_putnbr(int n)
 {
 	long long	long_n;
+	int			bytes;
 
 	long_n = n;
+	bytes = 0;
 	if (long_n < 0)
 	{
 		long_n = -long_n;
-		ft_putchar_fd('-', fd);
+		bytes += ft_putchar('-');
 	}
-	write_number(long_n, fd);
+	write_number(long_n, &bytes);
+	return (bytes);
 }
 
-/*
-#include <fcntl.h>
-int	main(void)
+int	ft_putnbr_unsigned(unsigned int n)
 {
-	int	fd;
+	int	bytes;
 
-	fd = open("testfile.txt", O_WRONLY);
-	ft_putnbr_fd(-2147483648, fd);
-	ft_putnbr_fd(0, fd);
-	ft_putnbr_fd(2147483647, fd);
-	close(fd);
-	return (0);
+	bytes = 0;
+	write_number(n, &bytes);
+	return (bytes);
 }
-*/

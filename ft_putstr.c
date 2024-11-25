@@ -1,32 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lcosta-g <lcosta-g@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/09 13:17:27 by lcosta-g          #+#    #+#             */
-/*   Updated: 2024/10/26 15:32:52 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2024/11/25 16:00:04 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_putstr(char *s)
 {
-	if (s)
-		write(fd, s, ft_strlen(s));
+	if (!s)
+		return (ft_putstr("(null)"));
+	return (write(STDOUT, s, ft_strlen(s)));
 }
-
-/*
-#include <fcntl.h>
-int	main(void)
-{
-	int	fd;
-
-	fd = open("testfile.txt", O_WRONLY);
-	ft_putstr_fd("ft_pustr_fd example", fd);
-	close(fd);
-	return (0);
-}
-*/

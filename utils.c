@@ -6,15 +6,35 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 12:53:35 by lcosta-g          #+#    #+#             */
-/*   Updated: 2024/11/22 13:30:38 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2024/11/25 16:45:21 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	write_hex(unsigned long long n, int fd, char *hex_values)
+void	write_hex(unsigned long long n, int *bytes, char *hex_values)
 {
 	if (n >= 16)
-		write_hex(n / 16, 0, hex_values);
-	ft_putchar_fd(hex_values[n % 16], fd);
+		write_hex(n / 16, bytes, hex_values);
+	*bytes += ft_putchar(hex_values[n % 16]);
+}
+
+void	write_number(long long n, int *bytes)
+{
+	char	c;
+
+	if (n > 9)
+		write_number(n / 10, bytes);
+	c = (n % 10) + '0';
+	*bytes += ft_putchar(c);
+}
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	len;
+
+	len = 0;
+	while (s[len])
+		len++;
+	return (len);
 }

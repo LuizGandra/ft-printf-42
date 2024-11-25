@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putaddress_fd.c                                 :+:      :+:    :+:   */
+/*   ft_putaddress.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 11:53:46 by lcosta-g          #+#    #+#             */
-/*   Updated: 2024/11/22 13:35:34 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2024/11/25 16:45:56 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putaddress_fd(void *address, int fd)
+int	ft_putaddress(void *address)
 {
+	int	bytes;
+
 	if (!address)
-		ft_putstr_fd("(nil)", fd);
-	else
-	{
-		ft_putstr_fd("0x", fd);
-		write_hex((unsigned long long)address, fd, HEX_LOWERCASE_VALUES);
-	}
-	// TODO implement return logic
-	return (0);
+		return (ft_putstr("(nil)"));
+	bytes = ft_putstr("0x");
+	write_hex((unsigned long long)address, &bytes, HEX_LOWERCASE_VALUES);
+	return (bytes);
 }
