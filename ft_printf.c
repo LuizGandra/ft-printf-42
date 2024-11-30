@@ -6,7 +6,7 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 10:59:41 by lcosta-g          #+#    #+#             */
-/*   Updated: 2024/11/27 16:51:20 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2024/11/30 13:54:07 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ int	ft_printf(const char *format_str, ...)
 	int		printed_bytes;
 	int		i;
 
+	if (!format_str)
+		return (-1);
 	va_start(list, format_str);
 	i = 0;
 	printed_bytes = 0;

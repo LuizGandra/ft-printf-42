@@ -21,11 +21,12 @@ int	ft_printf(const char *format_str, ...)
 	int		printed_bytes;
 	int		i;
 
+	if (!format_str)
+		return (-1);
 	va_start(list, format_str);
-	flag = '\0';
-	i = 0;
+	i = -1;
 	printed_bytes = 0;
-	while (format_str[i])
+	while (format_str[++i])
 	{
 		if (format_str[i] == '%')
 		{
@@ -37,7 +38,6 @@ int	ft_printf(const char *format_str, ...)
 		}
 		else
 			printed_bytes += ft_putchar(format_str[i]);
-		i++;
 	}
 	va_end(list);
 	return (printed_bytes);
@@ -61,10 +61,3 @@ int	resolve_specifier_bonus(const char type, const char flag, va_list list)
 		return (ft_putchar(type));
 	return (0);
 }
-
-// int	main(void)
-// {
-// 	int n1 = 5;
-// 	int n2 = 8;
-// 	ft_printf("%+i, % i, %#x, %#X\n", n1, n2, n1, n2);
-// }
