@@ -6,7 +6,7 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 10:59:45 by lcosta-g          #+#    #+#             */
-/*   Updated: 2024/11/30 13:53:19 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2024/11/30 15:47:15 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 
 # include <stdarg.h>
 # include <unistd.h>
-# include <stdio.h>
 
 int		ft_printf(const char *str, ...);
 int		ft_putchar(char c);

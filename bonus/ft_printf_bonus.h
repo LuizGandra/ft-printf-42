@@ -18,7 +18,6 @@
 
 # include <stdarg.h>
 # include <unistd.h>
-# include <stdio.h> // REMOVE
 
 int		ft_printf(const char *str, ...);
 int		ft_putchar(char c);

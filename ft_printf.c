@@ -6,13 +6,13 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 10:59:41 by lcosta-g          #+#    #+#             */
-/*   Updated: 2024/11/30 13:54:07 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2024/11/30 15:46:49 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	resolve_type(const char type, va_list list);
+int	resolve_specifier(const char code, va_list list);
 
 int	ft_printf(const char *format_str, ...)
 {
@@ -28,7 +28,7 @@ int	ft_printf(const char *format_str, ...)
 	while (format_str[i])
 	{
 		if (format_str[i] == '%')
-			printed_bytes += resolve_type(format_str[++i], list);
+			printed_bytes += resolve_specifier(format_str[++i], list);
 		else
 			printed_bytes += ft_putchar(format_str[i]);
 		i++;
@@ -37,21 +37,21 @@ int	ft_printf(const char *format_str, ...)
 	return (printed_bytes);
 }
 
-int	resolve_type(const char type, va_list list)
+int	resolve_specifier(const char code, va_list list)
 {
-	if (type == 'c')
+	if (code == 'c')
 		return (ft_putchar(va_arg(list, int)));
-	if (type == 's')
+	if (code == 's')
 		return (ft_putstr(va_arg(list, char *)));
-	if (type == 'p')
+	if (code == 'p')
 		return (ft_putaddress(va_arg(list, void *)));
-	if (type == 'd' || type == 'i')
+	if (code == 'd' || code == 'i')
 		return (ft_putnbr(va_arg(list, int)));
-	if (type == 'u')
+	if (code == 'u')
 		return (ft_putnbr_unsigned(va_arg(list, unsigned int)));
-	if (type == 'x' || type == 'X')
-		return (ft_puthex(va_arg(list, unsigned int), type));
-	if (type == '%')
-		return (ft_putchar(type));
+	if (code == 'x' || code == 'X')
+		return (ft_puthex(va_arg(list, unsigned int), code));
+	if (code == '%')
+		return (ft_putchar(code));
 	return (0);
 }

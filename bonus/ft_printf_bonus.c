@@ -12,7 +12,7 @@
 
 #include "ft_printf_bonus.h"
 
-int	resolve_specifier_bonus(const char type, const char flag, va_list list);
+int	resolve_specifier(const char code, const char flag, va_list list);
 
 int	ft_printf(const char *format_str, ...)
 {
@@ -33,7 +33,7 @@ int	ft_printf(const char *format_str, ...)
 			while (format_str[i] == '#' || format_str[i] == ' '
 				|| format_str[i] == '+')
 				i++;
-			printed_bytes += resolve_specifier_bonus(format_str[i],
+			printed_bytes += resolve_specifier(format_str[i],
 					format_str[i - 1], list);
 		}
 		else
@@ -43,21 +43,21 @@ int	ft_printf(const char *format_str, ...)
 	return (printed_bytes);
 }
 
-int	resolve_specifier_bonus(const char type, const char flag, va_list list)
+int	resolve_specifier(const char code, const char flag, va_list list)
 {
-	if (type == 'c')
+	if (code == 'c')
 		return (ft_putchar(va_arg(list, int)));
-	if (type == 's')
+	if (code == 's')
 		return (ft_putstr(va_arg(list, char *)));
-	if (type == 'p')
+	if (code == 'p')
 		return (ft_putaddress(va_arg(list, void *)));
-	if (type == 'd' || type == 'i')
+	if (code == 'd' || code == 'i')
 		return (ft_putnbr(va_arg(list, int), flag));
-	if (type == 'u')
+	if (code == 'u')
 		return (ft_putnbr_unsigned(va_arg(list, unsigned int), flag));
-	if (type == 'x' || type == 'X')
-		return (ft_puthex(va_arg(list, unsigned int), type, flag));
-	if (type == '%')
-		return (ft_putchar(type));
+	if (code == 'x' || code == 'X')
+		return (ft_puthex(va_arg(list, unsigned int), code, flag));
+	if (code == '%')
+		return (ft_putchar(code));
 	return (0);
 }
