@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_puthex.c                                        :+:      :+:    :+:   */
+/*   ft_putaddress.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/22 12:06:12 by lcosta-g          #+#    #+#             */
-/*   Updated: 2024/11/27 16:39:04 by lcosta-g         ###   ########.fr       */
+/*   Created: 2024/11/22 11:53:46 by lcosta-g          #+#    #+#             */
+/*   Updated: 2024/11/27 19:07:39 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "ft_printf_bonus.h"
 
-int	ft_puthex(unsigned long long n, const char type)
+int	ft_putaddress(void *address)
 {
 	int	bytes;
 
-	bytes = 0;
-	if (type == 'x')
-		write_hex(n, &bytes, HEX_LOWERCASE_VALUES);
-	else
-		write_hex(n, &bytes, HEX_UPPERCASE_VALUES);
+	if (!address)
+		return (ft_putstr("(nil)"));
+	bytes = ft_putstr("0x");
+	write_hex((unsigned long long)address, &bytes, HEX_LOWERCASE_VALUES);
 	return (bytes);
 }
