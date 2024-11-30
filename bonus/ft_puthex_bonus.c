@@ -12,16 +12,16 @@
 
 #include "ft_printf_bonus.h"
 
-int	ft_puthex(unsigned long long n, const char type, const char flag)
+int	ft_puthex(unsigned int n, const char type, const char flag)
 {
 	int	bytes;
 
 	bytes = 0;
-	if (flag == '#')
+	if (n && flag == '#')
 	{
 		if (type == 'x')
 			bytes += ft_putstr("0x");
-		if (type == 'X')
+		else if (type == 'X')
 			bytes += ft_putstr("0X");
 	}
 	if (type == 'x')

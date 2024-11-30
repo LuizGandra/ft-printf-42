@@ -22,13 +22,13 @@ $(NAME): $(OBJECTS)
 
 %.o: %.c $(HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
-	@$(AR) $(ARFLAGS) $(NAME) $@
+	$(AR) $(ARFLAGS) $(NAME) $@
 
 bonus: $(BONUS_OBJECTS)
 
 $(BONUS_DIR)/%.o: $(BONUS_DIR)/%.c $(BONUS_HEADERS)
 	$(CC) $(CFLAGS) -c $< -o $@
-	@$(AR) $(ARFLAGS) $(NAME) $@
+	$(AR) $(ARFLAGS) $(NAME) $@
 
 clean:
 	$(RM) $(OBJECTS) $(BONUS_OBJECTS)

@@ -18,6 +18,7 @@
 
 # include <stdarg.h>
 # include <unistd.h>
+# include <stdio.h> // REMOVE
 
 int		ft_printf(const char *str, ...);
 int		ft_putchar(char c);
@@ -25,7 +26,7 @@ int		ft_putstr(char *str);
 int		ft_putaddress(void *address);
 int		ft_putnbr(int n, const char flag);
 int		ft_putnbr_unsigned(unsigned int n, const char flag);
-int		ft_puthex(unsigned long long n, const char type, const char flag);
+int		ft_puthex(unsigned int n, const char type, const char flag);
 
 void	write_hex(unsigned long long n, int *bytes, char *hex_values);
 void	write_number(long long n, int *bytes);

@@ -6,7 +6,7 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 10:59:45 by lcosta-g          #+#    #+#             */
-/*   Updated: 2024/11/27 16:42:10 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2024/11/30 13:32:12 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int		ft_putstr(char *str);
 int		ft_putaddress(void *address);
 int		ft_putnbr(int n);
 int		ft_putnbr_unsigned(unsigned int n);
-int		ft_puthex(unsigned long long n, const char type);
+int		ft_puthex(unsigned int n, const char type);
 
 void	write_hex(unsigned long long n, int *bytes, char *hex_values);
 void	write_number(long long n, int *bytes);
