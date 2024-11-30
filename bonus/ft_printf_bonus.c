@@ -12,7 +12,7 @@
 
 #include "ft_printf_bonus.h"
 
-int	resolve_specifier(const char code, const char flag, va_list list);
+static int	resolve_specifier(const char code, const char flag, va_list list);
 
 int	ft_printf(const char *format_str, ...)
 {
@@ -43,7 +43,7 @@ int	ft_printf(const char *format_str, ...)
 	return (printed_bytes);
 }
 
-int	resolve_specifier(const char code, const char flag, va_list list)
+static int	resolve_specifier(const char code, const char flag, va_list list)
 {
 	if (code == 'c')
 		return (ft_putchar(va_arg(list, int)));

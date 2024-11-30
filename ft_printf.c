@@ -6,13 +6,13 @@
 /*   By: lcosta-g <lcosta-g@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/22 10:59:41 by lcosta-g          #+#    #+#             */
-/*   Updated: 2024/11/30 15:46:49 by lcosta-g         ###   ########.fr       */
+/*   Updated: 2024/11/30 16:19:13 by lcosta-g         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	resolve_specifier(const char code, va_list list);
+static int	resolve_specifier(const char code, va_list list);
 
 int	ft_printf(const char *format_str, ...)
 {
@@ -37,7 +37,7 @@ int	ft_printf(const char *format_str, ...)
 	return (printed_bytes);
 }
 
-int	resolve_specifier(const char code, va_list list)
+static int	resolve_specifier(const char code, va_list list)
 {
 	if (code == 'c')
 		return (ft_putchar(va_arg(list, int)));

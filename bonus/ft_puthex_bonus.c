@@ -14,19 +14,23 @@
 
 int	ft_puthex(unsigned int n, const char type, const char flag)
 {
-	int	bytes;
+	int		bytes;
+	char	*prefix;
+	char	*hex_values;
 
 	bytes = 0;
-	if (n && flag == '#')
-	{
-		if (type == 'x')
-			bytes += ft_putstr("0x");
-		else if (type == 'X')
-			bytes += ft_putstr("0X");
-	}
 	if (type == 'x')
-		write_hex(n, &bytes, HEX_LOWERCASE_VALUES);
+	{
+		prefix = "0x";
+		hex_values = HEX_LOWERCASE_VALUES;
+	}
 	else
-		write_hex(n, &bytes, HEX_UPPERCASE_VALUES);
+	{
+		prefix = "0X";
+		hex_values = HEX_UPPERCASE_VALUES;
+	}
+	if (n && flag == '#')
+		bytes += ft_putstr(prefix);
+	write_hex(n, &bytes, hex_values);
 	return (bytes);
 }
