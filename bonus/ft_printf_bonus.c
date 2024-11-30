@@ -17,7 +17,6 @@ int	resolve_specifier_bonus(const char type, const char flag, va_list list);
 int	ft_printf(const char *format_str, ...)
 {
 	va_list	list;
-	char	flag;
 	int		printed_bytes;
 	int		i;
 
@@ -33,8 +32,9 @@ int	ft_printf(const char *format_str, ...)
 			i++;
 			while (format_str[i] == '#' || format_str[i] == ' '
 				|| format_str[i] == '+')
-				flag = format_str[i++];
-			printed_bytes += resolve_specifier_bonus(format_str[i], flag, list);
+				i++;
+			printed_bytes += resolve_specifier_bonus(format_str[i],
+					format_str[i - 1], list);
 		}
 		else
 			printed_bytes += ft_putchar(format_str[i]);
