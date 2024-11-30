@@ -1,5 +1,3 @@
-# O MEU - N FUNCIONA
-
 NAME := libftprintf.a
 CFLAGS := -Wall -Werror -Wextra
 ARFLAGS := -rcs
