@@ -4,7 +4,7 @@ ARFLAGS := -rcs
 RM := rm -rf
 BONUS_DIR := bonus
 HEADERS := ft_printf.h
-BONUS_HEADERS := $(BONUS_DIR)/ft_printf.h
+BONUS_HEADERS := $(BONUS_DIR)/ft_printf_bonus.h
 SOURCES := \
 	ft_printf.c utils.c ft_putaddress.c ft_puthex.c \
 	ft_putchar.c ft_putnbr.c ft_putstr.c
