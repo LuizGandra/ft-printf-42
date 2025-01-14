@@ -15,7 +15,7 @@ The goal of this project is to implement a simplified version of the **printf()*
 ## How to Test
 To compile and run this project, run the `make` command in the terminal.
 
-**Note:** _the project is separated into two parts, the mandatory and the bonus. If you want to compile the project with the bonus, run `make bonus`_.
+**Note:** _the project is separated into two parts, the mandatory and the bonus. If you want to compile the project with the bonus, run _`make bonus`_._
 
 ## Project Structure
 The project is divided into two parts, the **mandatory** and the **bonus**, which includes the entire original project and more resources.
