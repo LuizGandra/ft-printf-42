@@ -35,8 +35,8 @@ ft_printf delivers a library (`libftprintf.a`) containing the `ft_printf()` func
 
 ### Prerequisites
 
-- C compiler (e.g., `clang`)
-- `make` utility
+- C compiler (e.g., `clang`).
+- `make` utility.
 
 ### How to Build and Run
 
