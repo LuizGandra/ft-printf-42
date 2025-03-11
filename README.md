@@ -64,7 +64,7 @@ ft_printf delivers a library (`libftprintf.a`) containing the `ft_printf()` func
 #### Additional commands
 
 - `make clean`: remove object files.
-- `make fclean`: remove `libft.a` and object files.
+- `make fclean`: remove the program and object files.
 - `make re`: rebuild everything.
 
 ## Project Structure
